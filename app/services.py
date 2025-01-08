@@ -33,13 +33,11 @@ class ItemsCollection(Resource):
                 'name': data['name'],
                 'price': data['price'],
                 'stock': data['stock'],
-                # 'available' es opcional y por defecto True
                 'available': data.get('available', True)
             }
             items.append(new_item)
             return items, 201
         except Exception as e:
-            print(e)
             return {'message': 'Error creating new item'}, 500
 
 
